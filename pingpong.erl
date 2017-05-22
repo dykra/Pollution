@@ -11,13 +11,8 @@
 
 %% API
 -export([start/0,ping_loop/0,pong_loop/0,play/1]).
-%start je wystartuje
-%czekaja na wiaodmośc bo mają nie robić nic
-%play wywołana w konosli i wysyła komunikat z liczbą do jednego z tych 2 procesów
-%zmniejzaja liczbe o 1 i wysyalaja do drugiego + druk komuniaku i sleepna 1
-%sporo komunikatów miedzy sobą
 
-%uruchamia oba procesy
+
 start() ->
   PidPing = spawn(pingpong, ping_loop,[]),
   register(ping, PidPing),

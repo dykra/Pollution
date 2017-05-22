@@ -17,9 +17,6 @@ onp(Wyrazenie) ->
   policz(Sparsowane,[]).
 
 
-%list+to_integer/1 -> do ciagu znakow na liczby
-%pamiętac zbey n ie zapetlac list w sobie!!!
-%na podstawie algorytmu z wikipedii
 policz([],[H|T]) -> H; %zdejmowanie wyniku ze stosu
 policz(["+"|Reszta],[A,B|T]) -> policz(Reszta,[A + B| T]);
 policz(["-"|Reszta],[A,B|T]) -> policz(Reszta,[A - B| T]);

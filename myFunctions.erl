@@ -36,26 +36,6 @@ divisibleBy([H|T], D) ->
     (H rem D == 0)  ->  [H | divisibleBy(T,D)];
     true -> divisibleBy(T,D)
   end.
-%wybiera tylko liczby podzielne przez dana liste
+
 
 toBinary(B) ->lists:reverse([N - $0 || N <- integer_to_list(B, 2)]).
-
-%divisibleBy2([],liczba)->[];
-%divisibleBy2([H|T],liczba)->
- % ( H rem liczba)
-  %  0 -> [H | divisibleBy(T,D)];
-   % _ ->    divisibleBy(T,D).
-
-
-% zwraca liczbę w postaci binarnej (jako liste)
-%todo jak ją naprawić?
-%toBinary2(0,[result]) -> result;
-%toBinary2(number, [result])-> toBinary2(number/2, result ++ [number rem 2]).
-
-%todo zadanie dokończ zadanka bez if-ów i caseów!! (if'a sie nie uzywa nigdy, case'a tylko czasami)
-%wzorce moga byc
-%nazywać zmienne lepiej
-
-%todo kalkulator odwrotnej notacji polskiej
-%ok 3-4 linijki do zaladowania i po 2 linijki na kazdy operator
-
