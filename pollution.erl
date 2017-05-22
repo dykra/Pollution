@@ -54,7 +54,7 @@ removeValue({Latitude,Longitude},LocalTime,ValueType,Monitor) ->
   case lists:any(fun(#station{longitude = Long,latitude = Lati,measurements = Measur})-> (Long=:=Longitude) and (Lati=:=Latitude) and
     (lists:any(fun(#measurement{localTime = A,valueType = Type})-> (A=:=LocalTime) and (Type =:= ValueType) end, Measur)) end,Monitor) of
      true -> removeValueAlways({Latitude,Longitude},LocalTime,ValueType,Monitor);
-    _ -> {error,"Taka stacja nie istnieje lub nie ma takiej wartości."}
+     _ -> {error,"Taka stacja nie istnieje lub nie ma takiej wartości."}
   end;
 removeValue(Name,LocalTime,ValueType,Monitor) ->
   case lists:any(fun(#station{name = A,measurements = Measur})-> A=:=Name andalso

@@ -22,7 +22,7 @@
   terminate/2,
   code_change/3]).
 
--export([print/0,addStation/2,addValue/4, removeValue/3,getOneValue/3,getStationMean/2,getDailyMean/2]).
+-export([crash/0,addStation/2,addValue/4, removeValue/3,getOneValue/3,getStationMean/2,getDailyMean/2]).
 
 -define(SERVER, ?MODULE).
 
@@ -39,19 +39,13 @@
 %% @end
 %%--------------------------------------------------------------------
 
-% start() -> gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
-% checkout(Who, Book) -> gen_server:call(?MODULE, {checkout, Who, Book}).
-% lookup(Book) -> gen_server:call(?MODULE, {lookup, Book}).
-% return(Book) -> gen_server:call(?MODULE, {return, Book}).
 
 -spec(start_link() ->
   {ok, Pid :: pid()} | ignore | {error, Reason :: term()}).
 start_link() ->
   gen_server:start_link({local, ?SERVER}, ?MODULE, [], []).
 
-%todo end this one here maybe {Info, Pid} = rPo:start_link()
-% todo crash function
-% http://learnyousomeerlang.com/clients-and-servers
+
 
 %%%===================================================================
 %%% gen_server callbacks
@@ -69,7 +63,6 @@ start_link() ->
 %% @end
 %%--------------------------------------------------------------------
 
-% as initial value we will give empty Monitor
 
 -spec(init(Args :: term()) ->
   {ok, State :: #state{}} | {ok, State :: #state{}, timeout() | hibernate} |
@@ -86,6 +79,7 @@ getStationMean(Name,Type)-> gen_server:call(?SERVER, {getStationMean,Name,Type})
 getOneValue(Name,Type,{Day,Hour})-> gen_server:call(?SERVER, {getOneValue,Name,Type,{Day,Hour}}).
 removeValue(Name,{Day,Hour},Type)-> gen_server:call(?SERVER, {removeValue,Name,{Day,Hour},Type}).
 
+crash()-> 2/0.
 % print()-> gen_server:call(?SERVER, {print}).
 
 %%--------------------------------------------------------------------
